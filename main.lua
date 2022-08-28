@@ -1,5 +1,22 @@
-local personagem = require("./modules/character")
+---@diagnostic disable: lowercase-global
+local love = require "love"
+local Player = require "modules/player"
 
-personagem.say(string.lower("Henrique"))
+function love.load()
+  love.mouse.setVisible(false)
+  mouse_x, mouse_y = 0, 0
 
-print(personagem.age(1993))
+  local show_debugging = true
+
+  player = Player(show_debugging)
+end
+
+
+function love.update()
+  mouse_x, mouse_y = love.mouse.getPosition()
+end
+
+
+function love.draw()
+  player:draw()  
+end
