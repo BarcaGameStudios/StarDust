@@ -1,7 +1,5 @@
-local function sayHi(name)
-  local name = name or "Nelson"
+local personagem = require("./modules/character")
 
-  print('Olá, ' .. name ..'!')
-end
+personagem.say(string.lower("Henrique"))
 
-sayHi(string.lower("Henrique"))
+print(personagem.age(1993))
